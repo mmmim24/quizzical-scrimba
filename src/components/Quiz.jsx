@@ -39,7 +39,9 @@ export default function Quiz() {
                     <h2 className="text-[#293264] text-lg font-semibold">{item.q}</h2>
                     <div className="flex flex-row gap-4 mt-4">
                         {item.answers.map((answer) => {
-                            const isCorrect = isSubmitted && answer === item.answers[0];
+                            const isCorrect = isSubmitted && answer === correctAnswers.find(
+                                (ans) => ans === selected[item.q]
+                            );
                             const isSelected = selected[item.q] === answer;
                             const isWrong = isSubmitted && isSelected && !isCorrect;
 
